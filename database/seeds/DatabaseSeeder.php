@@ -11,6 +11,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        // Insertar un registro
+        DB::table('auditors')->insert([
+            'name' => 'John',
+            'last_name' => 'Rodriguez',
+            'email' => 'john@starqsoft.com'
+        ]);
+
+        factory(App\Auditor::class, 10)->create();
     }
 }
