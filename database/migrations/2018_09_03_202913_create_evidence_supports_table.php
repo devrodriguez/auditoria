@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEvidenceFindingTable extends Migration
+class CreateEvidenceSupportsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateEvidenceFindingTable extends Migration
      */
     public function up()
     {
-        Schema::create('evidence_finding', function (Blueprint $table) {
+        Schema::create('evidence_supports', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateEvidenceFindingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('evidence_finding');
+        Schema::dropIfExists('evidence_supports');
     }
 }
