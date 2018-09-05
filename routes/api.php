@@ -18,3 +18,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('audits', 'AuditController');
+Route::apiResource('auditors', 'AuditorController');
+Route::apiResource('criterias', 'CriteriaController');
+Route::apiResource('enterprises', 'EnterpriseController');
+Route::apiResource('evidences', 'EvidenceController');
+Route::apiResource('evidence_suports', 'EvidenceSupportController');
+Route::apiResource('findings', 'FindingController');
+Route::apiResource('roles', 'RoleController');
+Route::apiResource('supports', 'SupportController');
+Route::apiResource('support_types', 'SupportTypeController');

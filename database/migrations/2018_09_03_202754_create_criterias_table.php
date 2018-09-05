@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFindingsTable extends Migration
+class CreateCriteriasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateFindingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('findings', function (Blueprint $table) {
+        Schema::create('criterias', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+
+            
         });
     }
 
@@ -26,6 +28,6 @@ class CreateFindingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('findings');
+        Schema::dropIfExists('criterias');
     }
 }

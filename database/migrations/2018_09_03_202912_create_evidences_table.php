@@ -15,7 +15,11 @@ class CreateEvidencesTable extends Migration
     {
         Schema::create('evidences', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('finding_id');
             $table->timestamps();
+
+            // Foreign keys
+            $table->foreign('finding_id')->references('id')->on('findings');
         });
     }
 

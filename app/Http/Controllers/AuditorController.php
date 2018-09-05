@@ -14,17 +14,8 @@ class AuditorController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $auditors = Auditor::all();
+        return json_decode($auditors);
     }
 
     /**
@@ -45,17 +36,6 @@ class AuditorController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Auditor $auditor)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Auditor  $auditor
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Auditor $auditor)
     {
         //
     }

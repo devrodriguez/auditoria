@@ -15,7 +15,11 @@ class CreateSupportsTable extends Migration
     {
         Schema::create('supports', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('support_type_id');
             $table->timestamps();
+
+            // Foreign keys
+            $table->foreign('support_type_id')->references('id')->on('support_types');
         });
     }
 
