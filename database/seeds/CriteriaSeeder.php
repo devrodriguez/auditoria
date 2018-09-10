@@ -3,6 +3,8 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
+use App\Criteria;
+
 class CriteriaSeeder extends Seeder
 {
     /**
@@ -12,8 +14,7 @@ class CriteriaSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('criterias')->insert([
-            'description' => 'Libro contable al dia'
-        ]);
+        Criteria::truncate();
+        factory(Criteria::class, 20)->create();
     }
 }

@@ -52,3 +52,22 @@ BOOTSTRAP
 Clases para titulo de pagina cool (En una etiqueta h1, h2, ...)
 .text-header
 .text-center
+
+# FORMS
+- Validar Formularios
+$data = request()->validate([
+        'name' => 'required'
+], [
+        'name' => 'El campo nombre es obligatorio'
+]);
+
+- Mantener un valor anterior
+Si no hay un valor por defecto tomara el valor de ($user->email)
+<input name="email" value="{{ old('email', $user->email) }}">
+
+- Validar un formulario en el request
+$data = request()->validate([
+    'name' => 'required',
+    'email' => '',
+    'password' => '',
+]);

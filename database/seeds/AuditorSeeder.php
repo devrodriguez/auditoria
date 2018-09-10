@@ -32,5 +32,7 @@ class AuditorSeeder extends Seeder
             'updated_at' => Carbon::now(),
             'role_id' => 2
         ]);
+
+        factory(App\Auditor::class, 10)->create();
     }
 }

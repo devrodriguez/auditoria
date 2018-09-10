@@ -14,7 +14,8 @@ class CriteriaController extends Controller
      */
     public function index()
     {
-        //
+        $criterias = Criteria::all();
+        return json_decode($criterias);
     }
 
     /**
@@ -25,7 +26,21 @@ class CriteriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->json()->all();
+        $criteria = new Criteria;
+
+        /*
+        Criteria::create([
+            "title" => $data["title"],
+            "description" => $data["description"],
+        ]);
+        */
+
+        $criteria->title = $data["title"];
+        $criteria->description = $data["description"];
+        $criteria->save();
+
+        return $criteria;
     }
 
     /**
@@ -36,7 +51,7 @@ class CriteriaController extends Controller
      */
     public function show(Criteria $criteria)
     {
-        //
+        return $criteria;
     }
 
     /**
@@ -48,7 +63,9 @@ class CriteriaController extends Controller
      */
     public function update(Request $request, Criteria $criteria)
     {
-        //
+        $data = $request->all();
+        $criteria->update($data);
+        return $criteria;
     }
 
     /**
