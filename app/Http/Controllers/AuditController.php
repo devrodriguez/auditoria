@@ -14,7 +14,8 @@ class AuditController extends Controller
      */
     public function index()
     {
-        //
+        $audit = Audit::all();
+        return $audit;
     }
 
     /**
@@ -25,7 +26,7 @@ class AuditController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -36,7 +37,7 @@ class AuditController extends Controller
      */
     public function show(Audit $audit)
     {
-        //
+        return $audit;
     }
 
     /**

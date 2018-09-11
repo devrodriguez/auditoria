@@ -29,18 +29,16 @@ class CriteriaController extends Controller
         $data = $request->json()->all();
         $criteria = new Criteria;
 
-        /*
-        Criteria::create([
-            "title" => $data["title"],
-            "description" => $data["description"],
-        ]);
-        */
+        $criteria = Criteria::create($data);
 
-        $criteria->title = $data["title"];
+        /*$criteria->title = $data["title"];
         $criteria->description = $data["description"];
-        $criteria->save();
+        $criteria->save();*/
 
-        return $criteria;
+        return [
+            'criteria' => $criteria,
+            'url' => '/api/criterias/'.$criteria->id 
+        ];
     }
 
     /**
@@ -76,6 +74,9 @@ class CriteriaController extends Controller
      */
     public function destroy(Criteria $criteria)
     {
-        //
+        $criteria->delete();
+        return [
+            'url' => '/api/criterias'
+        ];
     }
 }

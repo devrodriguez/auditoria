@@ -15,7 +15,7 @@ class AuditorController extends Controller
     public function index()
     {
         $auditors = Auditor::all();
-        return json_decode($auditors);
+        return $auditors;
     }
 
     /**
@@ -26,7 +26,14 @@ class AuditorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $auditor = Auditor::create($data);
+
+        return [
+            'auditor' => $auditor,
+            'url' => '/api/auditors/'.$auditor->id
+        ];
     }
 
     /**
@@ -37,7 +44,7 @@ class AuditorController extends Controller
      */
     public function show(Auditor $auditor)
     {
-        //
+        return $auditor;
     }
 
     /**
@@ -49,7 +56,9 @@ class AuditorController extends Controller
      */
     public function update(Request $request, Auditor $auditor)
     {
-        //
+        $data = $request->all();
+        $auditor->update($data);
+        return $auditor;
     }
 
     /**
@@ -60,6 +69,9 @@ class AuditorController extends Controller
      */
     public function destroy(Auditor $auditor)
     {
-        //
+        $auditor->delete();
+        return [
+            'url' => '/api/auditors'
+        ];
     }
 }

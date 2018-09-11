@@ -15,7 +15,7 @@ class RoleController extends Controller
     public function index()
     {
         $roles = Role::all();
-        return json_decode($roles);
+        return $roles;
     }
 
     /**
@@ -26,7 +26,16 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $role = Role::create([
+            'description' => $data["description"]
+        ]);
+
+        return [
+            'role' => $role,
+            'url' => '/api/roles/'.$role->id
+        ];
     }
 
     /**
@@ -37,7 +46,7 @@ class RoleController extends Controller
      */
     public function show(Role $role)
     {
-        //
+        return $role;
     }
 
     /**
@@ -49,7 +58,9 @@ class RoleController extends Controller
      */
     public function update(Request $request, Role $role)
     {
-        //
+        $data = $request->all();
+        $role->update($data);
+        return $role;
     }
 
     /**
@@ -60,6 +71,9 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        $role->delete();
+        return [
+            'url' => '/api/roles'
+        ];
     }
 }
