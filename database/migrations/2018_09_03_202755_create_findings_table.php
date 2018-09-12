@@ -15,6 +15,8 @@ class CreateFindingsTable extends Migration
     {
         Schema::create('findings', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title');
+            $table->string('description', 2000);
             $table->unsignedInteger('criteria_id');
             $table->timestamps();
 

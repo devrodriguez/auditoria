@@ -14,7 +14,8 @@ class EnterpriseController extends Controller
      */
     public function index()
     {
-        //
+        $enterprises = Enterprise::all();
+        return $enterprises;
     }
 
     /**
@@ -36,7 +37,7 @@ class EnterpriseController extends Controller
      */
     public function show(Enterprise $enterprise)
     {
-        //
+        return $enterprise;
     }
 
     /**

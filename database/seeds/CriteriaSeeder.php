@@ -14,7 +14,7 @@ class CriteriaSeeder extends Seeder
      */
     public function run()
     {
-        Criteria::truncate();
-        factory(Criteria::class, 20)->create();
+        //Criteria::truncate();
+        factory(Criteria::class, 15)->create();
     }
 }

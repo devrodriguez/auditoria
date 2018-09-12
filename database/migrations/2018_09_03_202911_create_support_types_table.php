@@ -15,6 +15,9 @@ class CreateSupportTypesTable extends Migration
     {
         Schema::create('support_types', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('extension');
+            $table->string('description');
+            $table->string('mimetype');
             $table->timestamps();
         });
     }

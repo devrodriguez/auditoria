@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Auditor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AuditorController extends Controller
 {
@@ -14,8 +15,14 @@ class AuditorController extends Controller
      */
     public function index()
     {
-        $auditors = Auditor::all();
-        return $auditors;
+        //$auditors = Auditor::all();
+        //return $auditors;
+        $rolesUser = DB::table('auditors')
+        ->join('roles', 'auditors.role_id', '=', 'roles.id')
+        ->select('auditors.*', 'roles.*')
+        ->get();
+
+        return $rolesUser;
     }
 
     /**

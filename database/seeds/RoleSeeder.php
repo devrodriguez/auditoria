@@ -13,17 +13,20 @@ class RoleSeeder extends Seeder
     {
         // Insertar un role
         DB::table('roles')->insert([
-            'description' => 'Master',
+            'title' => 'Master',
+            'description' => 'Role de mayor cargo',
         ]);
 
         // Insertar un role
         DB::table('roles')->insert([
-            'description' => 'Senior',
+            'title' => 'Senior',
+            'description' => 'Role de medio cargo',
         ]);
 
         // Insertar un role
         DB::table('roles')->insert([
-            'description' => 'Junior',
+            'title' => 'Junior',
+            'description' => 'Role de menor cargo',
         ]);
     }
 }

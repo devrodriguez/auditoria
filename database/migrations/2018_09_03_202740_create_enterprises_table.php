@@ -15,6 +15,11 @@ class CreateEnterprisesTable extends Migration
     {
         Schema::create('enterprises', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nit');
+            $table->string('name');
+            $table->string('address');
+            $table->string('phone');
+            $table->string('web_url', 500);
             $table->timestamps();
         });
     }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\SupportType;
 
 class SupportTypeSeeder extends Seeder
 {
@@ -11,6 +12,6 @@ class SupportTypeSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(SupportType::class, 12)->create();
     }
 }

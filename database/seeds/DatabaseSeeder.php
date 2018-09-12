@@ -14,7 +14,9 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleSeeder::class);
         $this->call(AuditorSeeder::class);
         $this->call(CriteriaSeeder::class);
-
-        //factory(App\Auditor::class, 10)->create();
+        $this->call(FindingSeeder::class);
+        $this->call(EvidenceSeeder::class);
+        $this->call(SupportTypeSeeder::class);
+        $this->call(SupportSeeder::class);
     }
 }

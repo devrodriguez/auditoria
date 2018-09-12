@@ -15,6 +15,7 @@ class CreateAuditsTable extends Migration
     {
         Schema::create('audits', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('description', 2000);
             $table->unsignedInteger('auditor_id');
             $table->unsignedInteger('enterprise_id');
             $table->unsignedInteger('criteria_id');

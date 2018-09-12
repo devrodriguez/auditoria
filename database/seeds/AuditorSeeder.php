@@ -23,16 +23,6 @@ class AuditorSeeder extends Seeder
             'role_id' => 1
         ]);
 
-        // Insertar un registro
-        DB::table('auditors')->insert([
-            'name' => 'Sandra',
-            'last_name' => 'Triana',
-            'email' => 'sandra@starqsoft.com',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-            'role_id' => 2
-        ]);
-
         factory(App\Auditor::class, 10)->create();
     }
 }

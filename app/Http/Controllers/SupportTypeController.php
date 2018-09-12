@@ -14,7 +14,8 @@ class SupportTypeController extends Controller
      */
     public function index()
     {
-        //
+        $support_type = SupportType::all();
+        return $support_type;
     }
 
     /**
@@ -25,7 +26,13 @@ class SupportTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        SupportType::create($data);
+
+        return [
+            'support_type' => $support_type,
+            'url' => '/api/support_types'
+        ];
     }
 
     /**
@@ -36,7 +43,7 @@ class SupportTypeController extends Controller
      */
     public function show(SupportType $supportType)
     {
-        //
+        return $supportType;
     }
 
     /**
@@ -48,7 +55,9 @@ class SupportTypeController extends Controller
      */
     public function update(Request $request, SupportType $supportType)
     {
-        //
+        $data = $request->all();
+        $supportType->update($data);
+        return $supportType;
     }
 
     /**
@@ -59,6 +68,9 @@ class SupportTypeController extends Controller
      */
     public function destroy(SupportType $supportType)
     {
-        //
+        $supportType->delete();
+        return [
+            'url' => '/api/support_types'
+        ];
     }
 }

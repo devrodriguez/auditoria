@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('audits', 'AuditController');
 Route::apiResource('auditors', 'AuditorController');
-Route::apiResource('criterias', 'CriteriaController');
+Route::apiResource('criterias', 'CriteriaController', ['except' => ['create', 'edit']]);
 Route::apiResource('enterprises', 'EnterpriseController');
 Route::apiResource('evidences', 'EvidenceController');
 Route::apiResource('evidence_suports', 'EvidenceSupportController');

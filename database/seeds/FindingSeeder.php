@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Finding;
 
 class FindingSeeder extends Seeder
 {
@@ -11,6 +12,6 @@ class FindingSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Finding::class, 10)->create();
     }
 }
