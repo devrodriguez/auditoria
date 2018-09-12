@@ -15,8 +15,11 @@ class AuditorController extends Controller
      */
     public function index()
     {
-        //$auditors = Auditor::all();
-        //return $auditors;
+        $auditors = Auditor::all();
+        return $auditors;
+    }
+
+    public function full() {
         $rolesUser = DB::table('auditors')
         ->join('roles', 'auditors.role_id', '=', 'roles.id')
         ->select('auditors.*', 'roles.*')

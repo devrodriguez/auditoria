@@ -18,13 +18,11 @@ class CreateAuditsTable extends Migration
             $table->string('description', 2000);
             $table->unsignedInteger('auditor_id');
             $table->unsignedInteger('enterprise_id');
-            $table->unsignedInteger('criteria_id');
             $table->timestamps();
 
             // Foreign keys
             $table->foreign('auditor_id')->references('id')->on('auditors');
             $table->foreign('enterprise_id')->references('id')->on('enterprises');
-            $table->foreign('criteria_id')->references('id')->on('criterias');
         });
     }
 

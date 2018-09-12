@@ -27,3 +27,5 @@ Route::apiResource('findings', 'FindingController');
 Route::apiResource('roles', 'RoleController');
 Route::apiResource('supports', 'SupportController');
 Route::apiResource('support_types', 'SupportTypeController');
+
+Route::get('auditors_full', 'AuditorController@full');

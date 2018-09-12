@@ -42,9 +42,13 @@ php artisan make:seeder nombre_seeder
 -- Para crearlos en la BD
         factory(Auditoria\Enterprise::class, 10)->create()
 
-# ELIMINAR MIGRACION
+# MIGRACION
+- Eliminar Migracion
 1. Eliminar archivos de database/migrations/
 2. Ejecutar composer dump-autoload
+
+- Migracion Tabla Pivote o Intermedia
+php artisan make:migration create_audit_criteria_table
 
 
 

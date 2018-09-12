@@ -15,12 +15,12 @@ class CreateCriteriaSupportTable extends Migration
     {
         Schema::create('criteria_support', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('criteria_id');
+            $table->unsignedInteger('audit_criteria_id');
             $table->unsignedInteger('support_id');
             $table->timestamps();
 
             // Foreign keys
-            $table->foreign('criteria_id')->references('id')->on('criterias');
+            $table->foreign('audit_criteria_id')->references('id')->on('audit_criteria');
             $table->foreign('support_id')->references('id')->on('supports');
         });
     }
