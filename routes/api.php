@@ -17,15 +17,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('audits', 'AuditController');
-Route::apiResource('auditors', 'AuditorController');
-Route::apiResource('criterias', 'CriteriaController', ['except' => ['create', 'edit']]);
-Route::apiResource('enterprises', 'EnterpriseController');
-Route::apiResource('evidences', 'EvidenceController');
-Route::apiResource('evidence_suports', 'EvidenceSupportController');
-Route::apiResource('findings', 'FindingController');
-Route::apiResource('roles', 'RoleController');
-Route::apiResource('supports', 'SupportController');
-Route::apiResource('support_types', 'SupportTypeController');
+Route::group(['middleware' => 'cors'], function() {
+    Route::apiResource('auditors', 'AuditorController');
+    Route::apiResource('audits', 'AuditController');
+    Route::apiResource('criterias', 'CriteriaController', ['except' => ['create', 'edit']]);
+    Route::apiResource('enterprises', 'EnterpriseController');
+    Route::apiResource('evidences', 'EvidenceController');
+    Route::apiResource('evidence_suports', 'EvidenceSupportController');
+    Route::apiResource('findings', 'FindingController');
+    Route::apiResource('roles', 'RoleController');
+    Route::apiResource('supports', 'SupportController');
+    Route::apiResource('support_types', 'SupportTypeController');
+    Route::get('auditors_full', 'AuditorController@full');
+});
 
-Route::get('auditors_full', 'AuditorController@full');
